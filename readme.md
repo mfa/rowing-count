@@ -2,16 +2,25 @@
 
 ## about
 
-- use raspberry pi zero W applied to rowing machine using cable ties.
-- maybe add button to shutdown pi?
+Use raspberry pi zero W applied to a Hanseatic Rowing Machine using cable ties.
 
+## sensor
 
-## sensors
+- currently supported: MMA7455
+- https://www.nxp.com/docs/en/data-sheet/MMA7455L.pdf
 
-- first try:
-https://www.nxp.com/docs/en/data-sheet/MMA7455L.pdf
+## requirements
 
+python packages
 
-## powerbutton idea
+- smbus
+- click
+- scipy / numpy
 
-- https://www.quartoknows.com/page/raspberry-pi-shutdown-button
+for archlinuxarm:
+
+- i2c-tools
+- python-click
+- python-scipy
+
+i2c needs to be enabled!
