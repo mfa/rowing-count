@@ -1,4 +1,4 @@
-import json
+import csv
 import smbus
 import time
 import datetime
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     fieldnames = ["dt", "xAcc_mma7455", "yAcc_mma7455", "zAcc_mma7455"]
     logpath = f"/home/alarm/logs/{datetime.datetime.now().isoformat()}.csv"
     with open(logpath, "w") as fp:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer = csv.DictWriter(fp, fieldnames=fieldnames)
         writer.writeheader()
         while not quit:
             time.sleep(0.01)
