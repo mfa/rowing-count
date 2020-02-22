@@ -21,8 +21,11 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, handle_interrupt)
     quit = False
 
-    logpath = f"/home/alarm/logs/{datetime.datetime.now().isoformat()}.log"
+    fieldnames = ["dt", "xAcc_mma7455", "yAcc_mma7455", "zAcc_mma7455"]
+    logpath = f"/home/alarm/logs/{datetime.datetime.now().isoformat()}.csv"
     with open(logpath, "w") as fp:
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
         while not quit:
             time.sleep(0.01)
 
@@ -46,5 +49,4 @@ if __name__ == "__main__":
                 "yAcc_mma7455": yAcc,
                 "zAcc_mma7455": zAcc,
             }
-            fp.write(json.dumps(data))
-            fp.write("\n")
+            writer.writerow(data)

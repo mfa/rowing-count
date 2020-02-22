@@ -1,4 +1,4 @@
-import json
+import csv
 import click
 import numpy as np
 import scipy.signal
@@ -7,9 +7,9 @@ from pathlib import Path
 
 def load(fn):
     with open(fn) as fp:
-        for line in fp.readlines():
-            d = json.loads(line)
-            yield (d.get("xAcc_mma7455"))
+        reader = csv.DictReader(fp)
+        for row in reader:
+            yield(int(row["xAcc_mma7455"]))
 
 
 def get_peaks(x):
@@ -24,7 +24,7 @@ def get_peaks(x):
 def main(filename):
     if not filename:
         # get newest file in folder
-        filename = max((f.stat().st_mtime, f) for f in Path("logs").iterdir())[1]
+        filename = max((f.stat().st_mtime, f) for f in Path("logs").glob("*.csv"))[1]
 
     print("peaks:", get_peaks(list(load(filename))))
 
