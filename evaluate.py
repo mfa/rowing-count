@@ -16,7 +16,7 @@ def get_peaks(x):
     _ = np.negative(x)
     _ = scipy.signal.savgol_filter(_, 51, 3)
     peaks, properties = scipy.signal.find_peaks(_, prominence=4, width=40)
-    return sum(map(lambda i: i > 15, properties["prominences"]))
+    return sum(map(lambda i: i > 12, properties["prominences"]))
 
 
 @click.command()
