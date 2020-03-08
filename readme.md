@@ -4,6 +4,8 @@
 
 Use raspberry pi zero W applied to a Hanseatic Rowing Machine using cable ties.
 
+Blogpost: https://madflex.de/posts/count-rows-on-an-old-rowing-machine/
+
 ## sensor
 
 - currently supported: MMA7455
