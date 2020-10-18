@@ -4,7 +4,12 @@ import time
 import datetime
 import signal
 
+import warnings
+warnings.simplefilter('ignore')
+import gpiozero
 
+
+led = gpiozero.LED(19)  # pin 35
 bus = smbus.SMBus(1)
 # MMA7455L address, 0x1D
 bus.write_byte_data(0x1D, 0x16, 0x01)
@@ -18,6 +23,7 @@ def handle_interrupt(*args):
 
 
 if __name__ == "__main__":
+    led.on()
     signal.signal(signal.SIGINT, handle_interrupt)
     quit = False
 
@@ -50,3 +56,4 @@ if __name__ == "__main__":
                 "zAcc_mma7455": zAcc,
             }
             writer.writerow(data)
+    led.off()

@@ -13,16 +13,23 @@ Blogpost: https://madflex.de/posts/count-rows-on-an-old-rowing-machine/
 
 ## requirements
 
-python packages
+### python packages
 
 - smbus
 - click
 - scipy / numpy
+- giozero
 
-for archlinuxarm:
+### archlinuxarm
 
+pacman:
 - i2c-tools
 - python-click
 - python-scipy
+- gcc
+
+pip:
+- giozero
+
 
 i2c needs to be enabled!
