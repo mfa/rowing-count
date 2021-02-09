@@ -4,6 +4,10 @@ import numpy as np
 import scipy.signal
 from pathlib import Path
 
+import warnings
+warnings.simplefilter('ignore')
+import gpiozero
+
 
 def load(fn):
     with open(fn) as fp:
@@ -22,6 +26,8 @@ def get_peaks(x):
 @click.command()
 @click.option("--filename", default="", help="use newest if empty")
 def main(filename):
+    led = gpiozero.LED(19)  # pin 35
+    led.off()
     if not filename:
         # get newest file in folder
         filename = max((f.stat().st_mtime, f) for f in Path("logs").glob("*.csv"))[1]
