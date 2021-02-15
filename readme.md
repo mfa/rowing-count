@@ -18,7 +18,7 @@ Blogpost: https://madflex.de/posts/count-rows-on-an-old-rowing-machine/
 - smbus
 - click
 - scipy / numpy
-- giozero
+- gpiozero
 
 ### archlinuxarm
 
@@ -29,7 +29,7 @@ pacman:
 - gcc
 
 pip:
-- giozero
+- gpiozero
 
 
 i2c needs to be enabled!
