@@ -20,16 +20,13 @@ Blogpost: https://madflex.de/posts/count-rows-on-an-old-rowing-machine/
 - scipy / numpy
 - gpiozero
 
-### archlinuxarm
+### raspios (bookworm)
 
-pacman:
-- i2c-tools
-- python-click
-- python-scipy
-- gcc
+activate i2c in raspi-config
 
-pip:
-- gpiozero
-
-
-i2c needs to be enabled!
+```
+sudo apt install i2c-tools virtualenv
+virtualenv venv
+. venv/bin/activate
+pip install click scipy gpiozero smbus
+```

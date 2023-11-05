@@ -5,7 +5,8 @@ After=multi-user.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python /home/alarm/record.py
+User=pi
+ExecStart=/home/pi/venv/bin/python /home/pi/record.py
 Restart=always
 
 [Install]

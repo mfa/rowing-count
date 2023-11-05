@@ -28,7 +28,7 @@ if __name__ == "__main__":
     quit = False
 
     fieldnames = ["dt", "xAcc_mma7455", "yAcc_mma7455", "zAcc_mma7455"]
-    logpath = f"/home/alarm/logs/{datetime.datetime.now().isoformat()}.csv"
+    logpath = f"/home/pi/logs/{datetime.datetime.now().isoformat()}.csv"
     with open(logpath, "w") as fp:
         writer = csv.DictWriter(fp, fieldnames=fieldnames)
         writer.writeheader()
