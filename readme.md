@@ -30,3 +30,13 @@ virtualenv venv
 . venv/bin/activate
 pip install click scipy gpiozero smbus
 ```
+
+## evaluate
+
+stopping sensor and evaluate the last csv file
+
+add this to .bashrc:
+```
+alias stp="sudo systemctl stop rowcount; (cd ~; /home/pi/venv/bin/python evaluate.py)"
+```
+and then after the workout run ``stp`` to get the result.
